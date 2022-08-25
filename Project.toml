@@ -3,6 +3,16 @@ uuid = "d875d3bc-0775-42f2-bc5f-448efffc5c3f"
 authors = ["Michael Kuts"]
 version = "0.1.0"
 
+[deps]
+Arpack = "7d9fca2a-8960-54d3-9f78-7d1dccf2cb97"
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+Hilbert = "5befdd30-5572-5129-8422-0c92d957d47a"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+ToeplitzMatrices = "c751599d-da0a-543b-9d20-d0a503d91d24"
+
 [compat]
 julia = "1"
 
