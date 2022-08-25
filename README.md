@@ -6,8 +6,7 @@ Package for analysis of nonlinear dynamics
 
 Currently support Hilbert analysis of MDoF system using Singular-Spectrum Analysis for mode decomposition (SSA-HT)
 
-To add package run in REPL
-    julia> using Pkg; 
-    julia> Pkg.add("https://github.com/kutsjuice/Jurvis.jl");
+To add package run in REPL 
+    julia> using Pkg;
+    julia> Pkg.develope(url="https://github.com/kutsjuice/Jurvis.jl")
     julia> Pkg.activate((DEPOT_PATH[1])*"\\dev\\Jurvis")
-    
