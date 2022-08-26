@@ -14,6 +14,7 @@ PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
 ToeplitzMatrices = "c751599d-da0a-543b-9d20-d0a503d91d24"
 
 [compat]
+CSV = "0.10"
 julia = "1"
 
 [extras]
