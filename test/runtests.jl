@@ -1,3 +1,4 @@
+ENV["PYTHON"]=""
 using Jurvis
 using Test
 
