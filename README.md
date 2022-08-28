@@ -9,6 +9,6 @@ Currently support Hilbert analysis of MDoF system using Singular-Spectrum Analys
 To add package run in REPL
 ``` 
     julia> using Pkg;
-    julia> Pkg.develope(url="https://github.com/kutsjuice/Jurvis.jl")
+    julia> Pkg.develop(url="https://github.com/kutsjuice/Jurvis.jl")
     julia> Pkg.activate((DEPOT_PATH[1])*"\\dev\\Jurvis")
 ```
