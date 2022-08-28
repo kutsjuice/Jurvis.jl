@@ -1,9 +1,17 @@
+
+
 function fullsignal(vec::AbstractVector{<:Number})
     return dropdims(Hilbert.hilbert(reshape(vec, (length(vec),1))), dims = 2);
 end
 
 function envelope(vec::AbstractVector{<:Real})
     return abs.(fullsignal(vec))
+end
+"""
+Compute envelope by picking peacks with further splineinterpolation over them
+"""
+function pickedenvelope(vec::AbstractVector{<:Real})
+
 end
 
 function envelope(vec::AbstractVector{Complex})
@@ -39,7 +47,7 @@ function instphase(vec::AbstractVector{<:Real})
     return unwrap!(angle.(fullsignal(vec)))    
 end
 
-function instphase(vec::AbstractVector{Complex})
+function instphase(vec::AbstractVector{<:Complex})
     return unwrap!(angle.(vec))    
 end
 
@@ -52,7 +60,9 @@ end
 function instdamping(env::AbstractVector{<:Real}, instfreq::AbstractVector{<:Real})
     return 2*π*instdecaycoeff(env) ./ instfreq;
 end
-
-function instfrequency(data::MeasuredData, channel)
+# todo: think is this function really needed and if so - implement it
+# function instfrequency(data::MeasuredData, channel)
     
-end
+# end
+
+# function 

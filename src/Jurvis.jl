@@ -1,5 +1,5 @@
 module Jurvis
-# __precompile__(false);
+__precompile__(false);
 using Arpack;
 using LinearAlgebra;
 using CSV;
@@ -8,6 +8,7 @@ using FFTW;
 using ToeplitzMatrices;
 import PyPlot; plt = PyPlot;
 using Hilbert;
+using Peaks;
 
 # utility functions
 export MeasuredData, getstep, cut, cut!, add_data!, copydata, downsample, downsample!;
