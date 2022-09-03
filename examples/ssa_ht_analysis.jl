@@ -128,7 +128,7 @@ inst_freq = findiff(mode1.ydata[:,4], getstep(mode1); order = 4) / (2*π)
 show_plots && plot(inst_freq)
 
 # since data very noizy, we can gen only trend from it
-freq_modes = decomposeSSA(instfreq, 10,1000)
+freq_modes = decomposeSSA(inst_freq, 10,1000)
 add_data!(mode1, freq_modes[:,1]; ydata_name = "frequency") # channel 6
 
 if show_plots
@@ -149,7 +149,7 @@ begin
     subplot(1,2,1)
     plotrelation(mode1, 5,7)
     xlim([0.1,maximum(mode1.ydata[:,5])])
-    ylim([1e-7, 1e-6])
+    ylim([1e-6, 1e-5])
     yscale("log")
     xscale("log")
     title("Damping-amplitude")
