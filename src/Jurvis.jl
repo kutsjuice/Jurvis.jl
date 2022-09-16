@@ -51,6 +51,11 @@ function MeasuredData(n::Integer, m::Integer)
     end
     return MeasuredData("", xdata, ydata, xdata_name, ydata_names, n, m, ydata_info);
 end
+
+function Base.getindex(data::MeasuredData, chan::Integer)
+    return data.ydata[:,chan]
+end
+
 include("md_utils.jl")
 include("io_tools.jl");
 include("ssa_tools.jl");
