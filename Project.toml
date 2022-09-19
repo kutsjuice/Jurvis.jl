@@ -16,6 +16,9 @@ ToeplitzMatrices = "c751599d-da0a-543b-9d20-d0a503d91d24"
 [compat]
 Arpack = "0.5"
 DataFrames = "1"
+PyPlot = "2"
+CSV = "0.10"
+Hilbert = "0.1"
 ToeplitzMatrices = "0.7"
 julia = "1"
 
