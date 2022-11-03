@@ -13,7 +13,7 @@ function diff14(vec::AbstractVector{<: Number}, time_step::Number)
     end
     # last points are calculated using bacckward scheme of the same order
     for i = (length(vec)-1):length(vec)
-        der[i,:] = sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
+        der[i,:] = -sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
     end
     return der;
 end
@@ -32,7 +32,7 @@ function diff14!(der::AbstractVector{<: Number}, vec::AbstractVector{<: Number},
     end
     # last points are calculated using bacckward scheme of the same order
     for i = (length(vec)-1):length(vec)
-        der[i,:] = sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
+        der[i,:] = -sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
     end
 end
 
