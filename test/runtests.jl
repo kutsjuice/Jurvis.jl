@@ -1,5 +1,6 @@
 ENV["PYTHON"]=""
 using Jurvis
+using LinearAlgebra
 using Test
 
 @testset "Jurvis.jl" begin
@@ -31,6 +32,20 @@ using Test
     @test all(md_cut.ydata .== md.ydata[101:201, :])
 
     @test md_cut.name == md.name
+
+    for order_ in [1, 2, 4]
+        dt = 0.001;
+        tt = 0:dt:10
+        xx = exp.(tt)
+        dxdt_t = exp.(tt)
+
+        dxdt_n = findiff(xx, dt; order = order_);
+        
+        @test norm(dxdt_t-dxdt_n)/(dt^order_) < norm(xx)
+        
+    end
+
+    
 
     
 end
