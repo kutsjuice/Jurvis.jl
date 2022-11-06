@@ -3,6 +3,8 @@ function diff14(vec::AbstractVector{<: Number}, time_step::Number)
     s_coefs = [1/12, -2/3, 2/3, -1/12];
     f_coefs = [-25/12, 4, -3, 4/3, -1/4];
     b_coefs = [1/4, -4/3, 3, -4, 25/12];
+    N = size(vec, 1);
+    M = size(vec, 2);
     # almost all points calculates using midpoint scheme
     for i = 3:(length(vec)-2)
         der[i, :] = (vec[i-2,:].*s_coefs[1] + vec[i-1,:].*s_coefs[2] + vec[i+1,:].*s_coefs[3] + vec[i+2,:].*s_coefs[4]) /time_step;
@@ -12,8 +14,10 @@ function diff14(vec::AbstractVector{<: Number}, time_step::Number)
         der[i,:] = sum(hcat([vec[i+j-1,:].*f_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
     end
     # last points are calculated using bacckward scheme of the same order
-    for i = (length(vec)-1):length(vec)
-        der[i,:] = sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
+    for j in 1:M
+        for i = N-1:N
+            der[i,j] = (vec[i-4:i, j]'*b_coefs)/time_step;
+        end
     end
     return der;
 end
@@ -31,8 +35,10 @@ function diff14!(der::AbstractVector{<: Number}, vec::AbstractVector{<: Number},
         der[i,:] = sum(hcat([vec[i+j-1,:].*f_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
     end
     # last points are calculated using bacckward scheme of the same order
-    for i = (length(vec)-1):length(vec)
-        der[i,:] = sum(hcat([vec[i-j+1,:].*b_coefs[j] for j in eachindex(f_coefs)]...), dims =2)./time_step;
+    for j in 1:M
+        for i = N-1:N
+            der[i,j] = (vec[i-4:i, j]'*b_coefs)/time_step;
+        end
     end
 end
 
