@@ -26,7 +26,7 @@ export decomposeSSA, embedd, calcmode, calcmodes, groupmodes;
 
 # function for Hilbert analysis
 export fullsignal, envelope, unwrap, unwrap!, instphase, instdecaycoeff, instdamping;
-
+# functions for finite differentiations
 export findiff;
 
 mutable struct MeasuredData
